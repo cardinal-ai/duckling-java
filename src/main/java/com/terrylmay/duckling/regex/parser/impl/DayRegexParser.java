@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class DayRegexParser extends TimeRegexParser {
 
-    @Override
+	@Override
     public BaseEntity parse(String token, BaseEntity baseEntity, Context context) {
         String rule = "((?<!\\d))([0-3][0-9]|[1-9])(?=(日|号))";
 

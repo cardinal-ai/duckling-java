@@ -19,21 +19,21 @@ public class StringUtils {
     }
 
     /**
-     * 该方法可以将字符串中所有的用汉字表示的数字转化为用阿拉伯数字表示的数字
-     * 如"这里有一千两百个人，六百零五个来自中国"可以转化为
-     * "这里有1200个人，605个来自中国"
-     * 此外添加支持了部分不规则表达方法
-     * 如两万零六百五可转化为20650
-     * 两百一十四和两百十四都可以转化为214
-     * 一六零加一五八可以转化为160+158
-     * 该方法目前支持的正确转化范围是0-99999999
-     * 该功能模块具有良好的复用性
+     * Cette méthode convertit tous les chiffres de la chaîne de caractères chinois en chiffres arabes.
+     * Par exemple, "Il y a 1200 personnes ici, 605 venant de Chine" peut être converti en
+     * "Il y a 1200 personnes ici, 605 de la Chine"
+     * En outre, certaines expressions irrégulières sont prises en charge
+     * Par exemple, vingt mille six cent cinquante peut être converti en 20650.
+     * Deux cent quatorze et deux cent quatorze peuvent être convertis en 214.
+     * Cent soixante plus cent cinquante-huit peut être converti en 160+158
+     * La plage de conversion correcte actuellement prise en charge par cette méthode est de 0-99999999.
+     * Le module de fonction a une bonne capacité de réutilisation
      *
-     * @param target 待转化的字符串
-     * @return 转化完毕后的字符串
+     * @param target La chaîne à convertir.
+     * @retourner la chaîne de caractères après la conversion
      */
     public static String numberTranslator(String target) {
-        Pattern p = Pattern.compile("[一二两三四五六七八九123456789]万[一二两三四五六七八九123456789](?!(千|百|十))");
+        Pattern p = Pattern.compile("[un123456789]万[一二两三四五六七八九123456789](?!(千|百|十))");
         Matcher m = p.matcher(target);
         StringBuffer sb = new StringBuffer();
         boolean result = m.find();
@@ -208,31 +208,31 @@ public class StringUtils {
     }
 
     /**
-     * 方法numberTranslator的辅助方法，可将[零-九]正确翻译为[0-9]
+     * Méthode d'aide pour la méthode numberTranslator afin de traduire correctement [zero - nine] en [0 - 9].
      *
-     * @param s 大写数字
-     * @return 对应的整形数，如果不是大写数字返回-1
+     * @param s nombre en majuscule
+     * @retourner le nombre plastique correspondant, en retournant -1 si ce n'est pas un nombre majuscule
      */
     private static int wordToNumber(String s) {
-        if (s.equals("零") || s.equals("0"))
+        if (s.equals("zero") || s.equals("0"))
             return 0;
-        else if (s.equals("一") || s.equals("1"))
+        else if (s.equals("un") || s.equals("1"))
             return 1;
-        else if (s.equals("二") || s.equals("两") || s.equals("2"))
+        else if (s.equals("deux") || s.equals("2"))
             return 2;
-        else if (s.equals("三") || s.equals("3"))
+        else if (s.equals("trois") || s.equals("3"))
             return 3;
-        else if (s.equals("四") || s.equals("4"))
+        else if (s.equals("quatre") || s.equals("4"))
             return 4;
-        else if (s.equals("五") || s.equals("5"))
+        else if (s.equals("cinq") || s.equals("5"))
             return 5;
-        else if (s.equals("六") || s.equals("6"))
+        else if (s.equals("six") || s.equals("6"))
             return 6;
-        else if (s.equals("七") || s.equals("天") || s.equals("日") || s.equals("末") || s.equals("7"))
+        else if (s.equals("sept") || s.equals("7"))
             return 7;
-        else if (s.equals("八") || s.equals("8"))
+        else if (s.equals("huit") || s.equals("8"))
             return 8;
-        else if (s.equals("九") || s.equals("9"))
+        else if (s.equals("neuf") || s.equals("9"))
             return 9;
         else return -1;
     }

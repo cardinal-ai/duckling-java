@@ -1626,14 +1626,13 @@ public class TimeTokenizer implements Tokenizer {
     private static final Pattern PATTERN = Pattern.compile(TIME_TOKEN_REGEX.toString());
 
 
-    @Override
     public List<String> cut(String target) {
         Matcher match;
         int startline = -1, endline = -1;
 
         String[] temp = new String[99];
         int rpointer = 0;// 计数器，记录当前识别到哪一个字符串了
-        List<String> tokens = new ArrayList<>();
+        List<String> tokens = new ArrayList<String>();
 
         match = PATTERN.matcher(target);
         boolean startmark = true;

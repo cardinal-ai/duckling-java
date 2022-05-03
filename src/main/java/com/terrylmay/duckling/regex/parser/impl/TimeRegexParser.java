@@ -1,6 +1,8 @@
 package com.terrylmay.duckling.regex.parser.impl;
 
+import com.terrylmay.duckling.context.Context;
 import com.terrylmay.duckling.context.DigitalTimeContext;
+import com.terrylmay.duckling.entity.BaseEntity;
 import com.terrylmay.duckling.entity.DigitalTime;
 import com.terrylmay.duckling.regex.parser.RegexParser;
 
@@ -48,4 +50,8 @@ public abstract class TimeRegexParser implements RegexParser {
         }
         return calendar;
     }
+
+	public BaseEntity parse(String token, BaseEntity baseEntity, Context context) {
+		return null;
+	}
 }

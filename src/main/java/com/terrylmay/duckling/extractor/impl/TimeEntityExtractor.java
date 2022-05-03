@@ -17,7 +17,7 @@ public class TimeEntityExtractor implements EntityExtractor {
 
     Tokenizer tokenizer;
 
-    static List<RegexParser> regexParserChain = new ArrayList<>();
+    static List<RegexParser> regexParserChain = new ArrayList<RegexParser>();
 
     static {
         regexParserChain.add(new PeriodYearRegexParser());
@@ -38,11 +38,10 @@ public class TimeEntityExtractor implements EntityExtractor {
         this.tokenizer = new TimeTokenizer();
     }
 
-    @Override
     public List<DigitalTime> extract(String target) {
         target = StringUtils.numberTranslator(target);// 大写数字转化
         List<String> tokens = this.tokenizer.cut(target);
-        List<DigitalTime> digitalTimes = new ArrayList<>();
+        List<DigitalTime> digitalTimes = new ArrayList<DigitalTime>();
 
         Context digitalTimeContext = null;
         for (String token : tokens) {
